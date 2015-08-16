@@ -1,0 +1,62 @@
+@charset "UTF-8";
+/* CSS Document */
+
+html,body{height: 100%; width: 640px}
+body { margin:0px; overflow:hidden; background: url(../img/bkg-overflow.jpg) #FFF}
+* form {margin: 0;padding: 0;}
+body.page1,body.page2,body.page3 { background:#c8c8c9;}
+.head { position:relative; height:85px;}
+.logo { position: absolute;}
+.layer10 { z-index:100;}
+.content-success {text-align: center;margin: 33px 20px 0;background: #fff;height: 760px;}
+.content-success p {margin: 0;padding: 0;}
+.footer-success {text-align: center;height: 70px;margin: 38px 0;}
+.footer-success a {display: block;}
+.headback { position: absolute; right:0px;}
+.share-div{position:fixed; left:0; top:0; width:640px; height:auto; z-index: 999;color: #fff; text-align: center;margin: 400px 0 0;display: none;}
+.mask-div{ position:fixed; left:0; top:0; width:100%; height:100%; background:#0c3557; filter:alpha(opacity=40); -moz-opacity:0.4; opacity:0.4;display: none;}
+.productselect { width:600px; margin:0 auto; height:446px; overflow:hidden; position:relative;margin-top: 20px; background:#fff;}
+.pshead { width:100%; height:70px; background:#003663;}
+
+.pscontent { height:376px; position:relative; width:100% ; overflow:hidden}
+
+.arrowl,
+.arrowr,
+.ps-sep { position:absolute}
+
+
+.arrowl { top:170px; left:10px;}
+.arrowr { top:170px; right:10px;}
+.ps-sep { top:40px; left:310px; }
+
+.prod {height:376px;}
+.prod ul { list-style:none; margin:0px; padding:0px}
+
+.prod li { display:block; float:left; width:50%; height:376px; text-align:center}
+.prod li a {display: block;}
+.pimg { margin:50px 0 0 0;}
+
+.pbuy{margin: 15px 0 0 0;}
+
+.papply { width:100%; text-align:center; margin:20px 0 0 0 ;}
+.papply a{display: block;}
+.applyform { width:640px; height:299px; overflow:hidden; position:relative; background: url(../img/form.png) no-repeat;margin: 50px 0 0 0;}
+
+.applyform input {  clear: both;
+  width: 466px;
+  background: transparent;
+  border: 0px;
+  height: 40px;
+  left: 125px;
+  line-height: 40px;
+  padding: 5px 0;
+  position: absolute;  font-size: 2em;}
+
+
+input#email {top: 209px;}
+input#name {top: 10px;}
+input#phone {  top: 111px;}
+
+
+
+

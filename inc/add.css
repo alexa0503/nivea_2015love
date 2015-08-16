@@ -1,0 +1,32 @@
+@charset "UTF-8";
+/* CSS Document */
+
+.gift-yes { background:url(../img2/gift-bkg.png); width:640px; height:970px}
+
+.grandma { width:185px; height:433px; overflow:hidden;position: absolute;}
+
+
+.grandma img { 
+position: absolute;
+		-webkit-animation-name: gndma; 
+		-webkit-animation-direction: 'normal'; 
+		animation-name: animation-name;
+		-webkit-animation-duration:2s;
+		-webkit-animation-timing-function:steps(1);
+		-webkit-animation-iteration-count:infinite;
+		animation-duration:2s;
+		animation-timing-function:steps(1);
+		animation-iteration-count:infinite;
+	}
+
+	@-webkit-keyframes gndma{
+		0% {left:0px}
+		50% {left:-185px}
+
+	}
+	@keyframes gndma{
+		0% {left:0px}
+		50% {left:-185px}
+
+	}
+	

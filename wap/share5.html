@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<title></title>
+<link rel="stylesheet" href="css/common.css">
+<script src="js/jquery-2.1.1.min.js"></script>
+<script src="js/touch.js"></script>
+<script src="js/common.js?v=0.2"></script>
+
+
+<!--移动端版本兼容 -->
+<script type="text/javascript">
+         var phoneWidth =  parseInt(window.screen.width);
+         var phoneScale = phoneWidth/640;
+         var ua = navigator.userAgent;
+         if (/Android (\d+\.\d+)/.test(ua)){
+                   var version = parseFloat(RegExp.$1);
+                   if(version>2.3){
+                            document.write('<meta name="viewport" content="width=640, minimum-scale = '+phoneScale+', maximum-scale = '+phoneScale+', target-densitydpi=device-dpi">');
+                   }else{
+                            document.write('<meta name="viewport" content="width=640, target-densitydpi=device-dpi">');
+                   }
+         } else {
+                   document.write('<meta name="viewport" content="width=640, user-scalable=no, target-densitydpi=device-dpi">');
+         }
+</script>
+<!--移动端版本兼容 end -->
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script>
+$().ready(function(){
+  var loc_url = window.location.href;
+  var url = 'http://ext11.niveamen.com.cn/65/page/2015oc_wx/index.php?c=index&m=shareInfo';
+  $.getJSON(url,{url:loc_url},function(data){
+    var wx_app_id = data.appId;
+    var wx_timestamp = data.timestamp
+    var wx_nonce_str = data.nonceStr
+    var wx_signature = data.signature
+    var wx_title = 'NIVEAMEN'
+    var wx_desc = 'NIVEAMEN'
+    var wx_share_url = 'http://ext11.niveamen.com.cn/65/page/love2015/wap/';
+    var wx_img_url = 'http://ext11.niveamen.com.cn/65/page/love2015/wap/images/logo.png';
+        wx.config({
+            debug: false,
+            appId: wx_app_id,
+            timestamp: wx_timestamp,
+            nonceStr: wx_nonce_str,
+            signature: wx_signature,
+            jsApiList: [
+                // 所有要调用的 API 都要加到这个列表中
+                'onMenuShareTimeline',
+                'onMenuShareAppMessage'
+            ]
+        });
+        wx.ready(function () {
+            wx.onMenuShareAppMessage({
+                title: wx_title,
+                desc: wx_desc,
+                link: wx_share_url,
+                imgUrl: wx_img_url,
+                trigger: function (res) {
+                    // 不要尝试在trigger中使用ajax异步请求修改本次分享的内容，因为客户端分享操作是一个同步操作，这时候使用ajax的回包会还没有返回
+                    //alert('用户点击发送给朋友');
+                },
+                success: function (res) {
+                },
+                cancel: function (res) {
+                    //alert('已取消');
+                },
+                fail: function (res) {
+                    //alert(JSON.stringify(res));
+                }
+            });
+            wx.onMenuShareTimeline({
+                title: wx_title,
+                desc: wx_desc,
+                link: wx_share_url,
+                imgUrl: wx_img_url,
+                trigger: function (res) {
+                    // 不要尝试在trigger中使用ajax异步请求修改本次分享的内容，因为客户端分享操作是一个同步操作，这时候使用ajax的回包会还没有返回
+                    //alert('用户点击发送给朋友');
+                },
+                success: function (res) {
+                },
+                cancel: function (res) {
+                    //alert('已取消');
+                },
+                fail: function (res) {
+                    //alert(JSON.stringify(res));
+                }
+            });
+        });
+  })
+  
+})
+</script>
+</head>
+
+<body>
+
+<div class="resPage abs">
+	<div class="innerDiv">
+    	<img src="images/page7Img5.jpg" class="resImg">
+        <div class="nameLine"><span id="iName"></span>:</div>
+        <a href="index.html" class="abs shareBtn"><img src="images/shareBtn.jpg"></a>
+    </div>
+</div>
+
+
+
+<!--<img src="images/logo.png" class="logo">-->
+
+<script>
+	$(document).ready(function(){
+    var iName = decodeURIComponent(queryString('iName'));
+    $('#iName').html(iName);
+		});
+		
+</script>
+
+</body>
+</html>

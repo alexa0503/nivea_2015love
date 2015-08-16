@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<title></title>
+<link rel="stylesheet" href="css/common.css">
+<script src="js/jquery-2.1.1.min.js"></script>
+<script src="js/touch.js"></script>
+<script src="js/common.js?v=0.1"></script>
+<!--移动端版本兼容 -->
+<script type="text/javascript">
+         var phoneWidth =  parseInt(window.screen.width);
+         var phoneScale = phoneWidth/640;
+         var ua = navigator.userAgent;
+         if (/Android (\d+\.\d+)/.test(ua)){
+                   var version = parseFloat(RegExp.$1);
+                   if(version>2.3){
+                            document.write('<meta name="viewport" content="width=640, minimum-scale = '+phoneScale+', maximum-scale = '+phoneScale+', target-densitydpi=device-dpi">');
+                   }else{
+                            document.write('<meta name="viewport" content="width=640, target-densitydpi=device-dpi">');
+                   }
+         } else {
+                   document.write('<meta name="viewport" content="width=640, user-scalable=no, target-densitydpi=device-dpi">');
+         }
+</script>
+<!--移动端版本兼容 end -->
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script>
+$().ready(function(){
+	var loc_url = window.location.href;
+	var url = 'http://ext11.niveamen.com.cn/65/page/2015oc_wx/index.php?c=index&m=shareInfo';
+	$.getJSON(url,{url:loc_url},function(data){
+		var wx_app_id = data.appId;
+		var wx_timestamp = data.timestamp
+		var wx_nonce_str = data.nonceStr
+		var wx_signature = data.signature
+		var wx_title = 'NIVEAMEN'
+		var wx_desc = 'NIVEAMEN'
+		var wx_share_url = 'http://ext11.niveamen.com.cn/65/page/love2015/wap/';
+		var wx_img_url = 'http://ext11.niveamen.com.cn/65/page/love2015/wap/images/logo.png';
+        wx.config({
+            debug: false,
+            appId: wx_app_id,
+            timestamp: wx_timestamp,
+            nonceStr: wx_nonce_str,
+            signature: wx_signature,
+            jsApiList: [
+                // 所有要调用的 API 都要加到这个列表中
+                'onMenuShareTimeline',
+                'onMenuShareAppMessage'
+            ]
+        });
+        wx.ready(function () {
+            wx.onMenuShareAppMessage({
+                title: wx_title,
+                desc: wx_desc,
+                link: wx_share_url,
+                imgUrl: wx_img_url,
+                trigger: function (res) {
+                    // 不要尝试在trigger中使用ajax异步请求修改本次分享的内容，因为客户端分享操作是一个同步操作，这时候使用ajax的回包会还没有返回
+                    //alert('用户点击发送给朋友');
+                },
+                success: function (res) {
+                },
+                cancel: function (res) {
+                    //alert('已取消');
+                },
+                fail: function (res) {
+                    //alert(JSON.stringify(res));
+                }
+            });
+            wx.onMenuShareTimeline({
+                title: wx_title,
+                desc: wx_desc,
+                link: wx_share_url,
+                imgUrl: wx_img_url,
+                trigger: function (res) {
+                    // 不要尝试在trigger中使用ajax异步请求修改本次分享的内容，因为客户端分享操作是一个同步操作，这时候使用ajax的回包会还没有返回
+                    //alert('用户点击发送给朋友');
+                },
+                success: function (res) {
+                },
+                cancel: function (res) {
+                    //alert('已取消');
+                },
+                fail: function (res) {
+                    //alert(JSON.stringify(res));
+                }
+            });
+        });
+	})
+	
+})
+</script>
+
+</head>
+
+<body>
+
+<div class="page pageIndex" style="display:none;">
+	<div class="innerDiv">
+    	<img src="images/indexImg1.jpg">
+    </div>
+</div>
+
+<div class="page page1" style="display:none;">
+	<div class="h832">
+    	<div class="innerDiv">
+        	<img src="images/page1Img1.png" class="abs page1Img1 pageTitle">
+            <img src="images/page1Img2.png" class="abs page1Img2 shakeImg">
+            
+            <img src="images/page1Img3.png" class="abs page1Img3">
+            <img src="images/page1Img4.png" class="abs page1Img4">
+            <img src="images/page1Img5.png" class="abs page1Img5">
+            <img src="images/page1Img6.png" class="abs page1Img6">
+        </div>
+    </div>
+</div>
+
+<div class="page page2" style="display:none;">
+	<div class="h832">
+    	<div class="innerDiv">
+        	<img src="images/page2Img1.png" class="abs page2Img1 pageTitle">
+            <img src="images/page2Img2.png" class="abs page2Img2 page2Img2Act">
+            
+            <img src="images/page2Img3.png" class="abs page2Img3">
+            <img src="images/page2Img4.png" class="abs page2Img4">
+            <img src="images/page2Img5.png" class="abs page2Img5">
+            <img src="images/page2Img6.png" class="abs page2Img6">
+        </div>
+    </div>
+</div>
+
+<div class="page page3" style="display:none;">
+	<div class="h832">
+    	<div class="innerDiv">
+        	<img src="images/page3Img1.png" class="abs page3Img1 pageTitle">
+            <img src="images/page3Img2.png" class="abs page3Img2 shakeImg">
+            
+            <img src="images/page3Img3.png" class="abs page3Img3">
+            <img src="images/page3Img4.png" class="abs page3Img4">
+            <img src="images/page3Img5.png" class="abs page3Img5">
+            <img src="images/page3Img6.png" class="abs page3Img6">
+        </div>
+    </div>
+</div>
+
+<div class="page page4" style="display:none;">
+	<div class="h832">
+    	<div class="innerDiv">
+        	<img src="images/page4Img1.png" class="abs page4Img1 pageTitle">
+            <img src="images/page4Img2a.png" class="abs page4Img2a shakeImg">
+            <img src="images/page4Img2b.png" class="abs page4Img2b shakeImg2">
+            
+            <img src="images/page4Img3.png" class="abs page4Img3">
+            <img src="images/page4Img4.png" class="abs page4Img4">
+            <img src="images/page4Img5.png" class="abs page4Img5">
+            <img src="images/page4Img6.png" class="abs page4Img6">
+        </div>
+    </div>
+</div>
+
+<div class="page page5" style="display:none;">
+	<div class="h832">
+    	<div class="innerDiv">
+        	<img src="images/page5Img1.png" class="abs page5Img1 pageTitle">
+            <img src="images/page5Img2.png" class="abs page5Img2 shakeImg">
+            
+            <img src="images/page5Img3.png" class="abs page5Img3">
+            <img src="images/page5Img4.png" class="abs page5Img4">
+            <img src="images/page5Img5.png" class="abs page5Img5">
+            <img src="images/page5Img6.png" class="abs page5Img6">
+        </div>
+    </div>
+</div>
+
+
+<img src="images/leftArrow.png" class="leftArrow leftArrowAct" style="display:none;">
+<img src="images/logo.png" class="logo">
+
+<script>
+	window.onload=winOnload;
+	
+	function winOnload(){
+		indexAct();
+		}
+		
+	function indexAct(){
+		$('.pageIndex').fadeIn(500);
+		$('.leftArrow').show();
+		$(".pageIndex").touchwipe({
+			min_move_x: 40, //横向灵敏度
+			min_move_y: 40, //纵向灵敏度
+			wipeLeft: function() {
+				pageGo(1);
+				}, //左侧滑动事件
+			wipeRight: function() {
+				
+				}, //右侧滑动事件
+			preventDefaultEvents: true //阻止默认事件
+			});
+		}
+		
+		
+	var isMoving=false;
+	function pageGo(e){
+		$('.leftArrow').hide();
+		if(!isMoving){
+			isMoving=true;
+			if(e==1){
+				$('.pageIndex').addClass('leftHide');
+				$('.page1').addClass('rightShow').show();
+				setTimeout(function(){
+					$('.pageIndex').hide().removeClass('leftHide');
+					$('.pageSel').removeClass('rightShow');
+					isMoving=false;
+					$('.leftArrow').show();
+					},1200);
+				page1Act();
+				}
+				else if(e==2){
+					$('.page1').addClass('leftHide');
+					$('.page2').addClass('rightShow').show();
+					setTimeout(function(){
+						$('.page1').hide().removeClass('leftHide');
+						$('.page2').removeClass('rightShow');
+						isMoving=false;
+						$('.leftArrow').show();
+						},1200);
+					page2Act();
+					}
+					else if(e==3){
+						$('.page2').addClass('leftHide');
+						$('.page3').addClass('rightShow').show();
+						setTimeout(function(){
+							$('.page2').hide().removeClass('leftHide');
+							$('.page3').removeClass('rightShow');
+							isMoving=false;
+							$('.leftArrow').show();
+							},1200);
+						page3Act();
+						}
+						else if(e==4){
+							$('.page3').addClass('leftHide');
+							$('.page4').addClass('rightShow').show();
+							setTimeout(function(){
+								$('.page3').hide().removeClass('leftHide');
+								$('.page4').removeClass('rightShow');
+								isMoving=false;
+								$('.leftArrow').show();
+								},1200);
+							page4Act();
+							}
+							else if(e==5){
+								$('.page4').addClass('leftHide');
+								$('.page5').addClass('rightShow').show();
+								setTimeout(function(){
+									$('.page4').hide().removeClass('leftHide');
+									$('.page5').removeClass('rightShow');
+									isMoving=false;
+									$('.leftArrow').show();
+									},1200);
+								page5Act();
+								}
+			}
+		}
+		
+	function backPage(e){
+		$('.leftArrow').hide();
+		if(!isMoving){
+			isMoving=true;
+			if(e==0){
+				$('.page1').addClass('rightHide');
+				$('.pageIndex').addClass('leftShow').show();
+				setTimeout(function(){
+					$('.page1').hide().removeClass('rightHide');
+					$('.pageIndex').removeClass('leftShow');
+					isMoving=false;
+					$('.leftArrow').show();
+					},1200);
+				}
+				else if(e==1){
+					$('.page2').addClass('rightHide');
+					$('.page1').addClass('leftShow').show();
+					setTimeout(function(){
+						$('.page2').hide().removeClass('rightHide');
+						$('.page1').removeClass('leftShow');
+						isMoving=false;
+						$('.leftArrow').show();
+						},1200);
+					}
+					else if(e==2){
+						$('.page3').addClass('rightHide');
+						$('.page2').addClass('leftShow').show();
+						setTimeout(function(){
+							$('.page3').hide().removeClass('rightHide');
+							$('.page2').removeClass('leftShow');
+							isMoving=false;
+							$('.leftArrow').show();
+							},1200);
+						}
+						else if(e==3){
+							$('.page4').addClass('rightHide');
+							$('.page3').addClass('leftShow').show();
+							setTimeout(function(){
+								$('.page4').hide().removeClass('rightHide');
+								$('.page3').removeClass('leftShow');
+								isMoving=false;
+								$('.leftArrow').show();
+								},1200);
+							}
+							else if(e==4){
+								$('.page5').addClass('rightHide');
+								$('.page4').addClass('leftShow').show();
+								setTimeout(function(){
+									$('.page5').hide().removeClass('rightHide');
+									$('.page4').removeClass('leftShow');
+									isMoving=false;
+									$('.leftArrow').show();
+									},1200);
+								}
+			}
+		}	
+	
+	function page1Act(){
+		$('.page1Img1').addClass('titleDownShow');
+		$('.page1Img3').addClass('hiddenToShowY2');
+		$('.page1Img4').addClass('hiddenToShowY3');
+		$('.page1Img5').addClass('hiddenToShowY4');
+		$('.page1Img6').addClass('hiddenToShowY5');
+		$(".page1").touchwipe({
+			min_move_x: 40, //横向灵敏度
+			min_move_y: 40, //纵向灵敏度
+			wipeLeft: function() {
+				pageGo(2);
+				}, //左侧滑动事件
+			wipeRight: function() {
+				backPage(0);
+				}, //右侧滑动事件
+			preventDefaultEvents: true //阻止默认事件
+			});
+		}
+		
+	function page2Act(){
+		$('.page2Img1').addClass('titleDownShow');
+		$('.page2Img3').addClass('hiddenToShowY2');
+		$('.page2Img4').addClass('hiddenToShowY3');
+		$('.page2Img5').addClass('hiddenToShowY4');
+		$('.page2Img6').addClass('hiddenToShowY5');
+		$(".page2").touchwipe({
+			min_move_x: 40, //横向灵敏度
+			min_move_y: 40, //纵向灵敏度
+			wipeLeft: function() {
+				pageGo(3);
+				}, //左侧滑动事件
+			wipeRight: function() {
+				backPage(1);
+				}, //右侧滑动事件
+			preventDefaultEvents: true //阻止默认事件
+			});
+		}
+		
+	function page3Act(){
+		$('.page3Img1').addClass('titleDownShow');
+		$('.page3Img3').addClass('hiddenToShowY2');
+		$('.page3Img4').addClass('hiddenToShowY3');
+		$('.page3Img5').addClass('hiddenToShowY4');
+		$('.page3Img6').addClass('hiddenToShowY5');
+		$(".page3").touchwipe({
+			min_move_x: 40, //横向灵敏度
+			min_move_y: 40, //纵向灵敏度
+			wipeLeft: function() {
+				pageGo(4);
+				}, //左侧滑动事件
+			wipeRight: function() {
+				backPage(2);
+				}, //右侧滑动事件
+			preventDefaultEvents: true //阻止默认事件
+			});
+		}
+		
+	function page4Act(){
+		$('.page4Img1').addClass('titleDownShow');
+		$('.page4Img3').addClass('hiddenToShowY2');
+		$('.page4Img4').addClass('hiddenToShowY3');
+		$('.page4Img5').addClass('hiddenToShowY4');
+		$('.page4Img6').addClass('hiddenToShowY5');
+		$(".page4").touchwipe({
+			min_move_x: 40, //横向灵敏度
+			min_move_y: 40, //纵向灵敏度
+			wipeLeft: function() {
+				pageGo(5);
+				}, //左侧滑动事件
+			wipeRight: function() {
+				backPage(3);
+				}, //右侧滑动事件
+			preventDefaultEvents: true //阻止默认事件
+			});
+		}
+		
+	function page5Act(){
+		$('.page5Img1').addClass('titleDownShow');
+		$('.page5Img3').addClass('hiddenToShowY2');
+		$('.page5Img4').addClass('hiddenToShowY3');
+		$('.page5Img5').addClass('hiddenToShowY4');
+		$('.page5Img6').addClass('hiddenToShowY5');
+		$(".page5").touchwipe({
+			min_move_x: 40, //横向灵敏度
+			min_move_y: 40, //纵向灵敏度
+			wipeLeft: function() {
+				window.location.href='res.html';
+				}, //左侧滑动事件
+			wipeRight: function() {
+				backPage(4);
+				}, //右侧滑动事件
+			preventDefaultEvents: true //阻止默认事件
+			});
+		}
+</script>
+
+</body>
+</html>
